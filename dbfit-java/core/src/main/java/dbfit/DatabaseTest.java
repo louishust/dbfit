@@ -91,7 +91,7 @@ public class DatabaseTest extends Fixture {
         return new dbfit.fixture.ExecuteProcedure(environment, statement, true);
     }
 
-    public Fixture executeProcedureExpectException(String statement, int code) {
+    public Fixture executeProcedureExpectException(String statement, String code) {
         return new dbfit.fixture.ExecuteProcedure(environment, statement, code);
     }
 

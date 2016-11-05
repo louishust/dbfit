@@ -13,14 +13,14 @@ public class ExecuteProcedure extends DbObjectExecutionFixture {
     private String procName;
     private boolean exceptionExpected = false;
     private boolean excNumberDefined = false;
-    private int excNumberExpected;
+    private String excNumberExpected;
 
     public ExecuteProcedure() {
         this.environment = DbEnvironmentFactory.getDefaultEnvironment();
     }
 
     public ExecuteProcedure(DBEnvironment dbEnvironment, String procName,
-                            int expectedErrorCode) {
+                            String expectedErrorCode) {
         this.procName = procName;
         this.environment = dbEnvironment;
         this.exceptionExpected = true;
@@ -54,7 +54,13 @@ public class ExecuteProcedure extends DbObjectExecutionFixture {
     }
 
     @Override
-    protected int getExpectedErrorCode() {
+    protected String getExpectedErrorCode() {
         return excNumberExpected;
+    }
+
+    @Override
+    protected String getActualErrorCode(SQLException e) {
+System.out.println("in Execute projecure getActualErrorCode");
+        return environment.getActualErrorCode(e);
     }
 }
