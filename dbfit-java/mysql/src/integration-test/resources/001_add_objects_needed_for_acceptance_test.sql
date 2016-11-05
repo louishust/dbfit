@@ -11,3 +11,5 @@ create procedure makeuser() insert into users (name,username) values ('user1','f
 create procedure createuser(IN newname varchar(100), IN newusername varchar(100)) insert into users (name,username) values (newname, newusername);
 
 create procedure Multiply(IN factor int, INOUT val int) set val =val*factor;
+
+CREATE PROCEDURE raise_error_no_params() BEGIN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'test exception'; END;
