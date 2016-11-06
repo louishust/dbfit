@@ -5,6 +5,10 @@
 
 |Execute Ddl|${DROPMAKEUSERPROC}|
 
+|Execute Ddl|${DROPRAISEERRORWITHPARAMSPROC}|
+
+|Execute Ddl|${DROPRAISEERRORNOPARAMSPROC}|
+
 |Database Environment|
 |Commit|
 

@@ -231,5 +231,10 @@ public class MySqlEnvironment extends AbstractDbEnvironment {
 
         return allParams;
     }
+
+    @Override
+    public String getActualErrorCode(SQLException e) {
+        return e.getSQLState();
+    }
 }
 
