@@ -151,7 +151,7 @@ create or replace public synonym pub_syn_animals for dfsyntest.animals;
 create or replace procedure raise_error_with_params(name in varchar2, strlength out number) as
 begin
     if (name = 'xx') then
-        raise_application_error(-20001,'test exception');
+        raise_application_error(-20001, 'test exception');
     end if;
     strlength := LENGTH(name);
 end;
@@ -159,7 +159,7 @@ end;
 
 create or replace procedure raise_error_no_params as
 begin
-    raise_application_error(-20001,'test exception');
+    raise_application_error(-20001, 'test exception');
 end;
 /
 

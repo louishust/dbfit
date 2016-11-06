@@ -256,4 +256,11 @@ public class PostgresEnvironment extends AbstractDbEnvironment {
 
         return allParams;
     }
+
+    //@Override
+    public String getActualErrorCode(SQLException e) {
+System.out.println("in Postgres getActualErrorCode");
+        //return Integer.toString(e.getErrorCode());
+        return e.getSQLState();
+    }
 }
