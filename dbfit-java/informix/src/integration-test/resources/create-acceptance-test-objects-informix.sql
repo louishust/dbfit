@@ -11,3 +11,7 @@ CREATE PROCEDURE ConcatenateStrings(FirstString VARCHAR(255), SecondString VARCH
 CREATE PROCEDURE MakeUser() INSERT INTO Users (Name, UserName) VALUES ('user1', 'fromproc'); END PROCEDURE;
 
 CREATE PROCEDURE Multiply(Factor INTEGER, INOUT Val INTEGER) LET Val = Val * Factor; RETURN; END PROCEDURE;
+
+CREATE PROCEDURE raise_error_no_params() RAISE EXCEPTION 20001, 0; RETURN; END PROCEDURE;
+
+CREATE PROCEDURE raise_error_with_params(IN name VARCHAR(200), OUT strlength INTEGER) IF name = 'xx' THEN RAISE EXCEPTION 20001, 0; END IF; LET StrLength = LENGTH(InString); RETURN; END PROCEDURE;
