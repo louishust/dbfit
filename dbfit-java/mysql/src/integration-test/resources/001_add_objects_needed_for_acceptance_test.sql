@@ -14,4 +14,4 @@ create procedure Multiply(IN factor int, INOUT val int) set val =val*factor;
 
 CREATE PROCEDURE raise_error_no_params() BEGIN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'test exception', MYSQL_ERRNO = 20001; END;
 
-CREATE PROCEDURE raise_error_with_params(IN name VARCHAR, OUT strlength INTEGER) BEGIN IF (name = 'xx') THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'test exception', MYSQL_ERRNO = 20001; END IF; SET strlength = LENGTH(name); END;
+CREATE PROCEDURE raise_error_with_params(IN name VARCHAR(200), OUT strlength INTEGER) BEGIN IF (name = 'xx') THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'test exception', MYSQL_ERRNO = 20001; END IF; SET strlength = LENGTH(name); END;

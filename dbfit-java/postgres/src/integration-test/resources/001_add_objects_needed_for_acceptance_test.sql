@@ -65,3 +65,27 @@ $body$
 LANGUAGE plpgsql
 ;
 
+CREATE FUNCTION raise_error_no_params() 
+RETURNS VOID AS
+$body$
+BEGIN
+  RAISE EXCEPTION SQLSTATE '20001';
+END;
+$body$
+LANGUAGE plpgsql
+;
+
+CREATE FUNCTION raise_error_with_params(name VARCHAR, OUT strlength INTEGER) 
+RETURNS INTEGER AS
+$body$
+BEGIN
+  IF name = 'xx' THEN
+    RAISE EXCEPTION SQLSTATE '20001';
+  END IF;
+  strlength = CHAR_LENGTH(name);
+END;
+$body$
+LANGUAGE plpgsql
+;
+
+
